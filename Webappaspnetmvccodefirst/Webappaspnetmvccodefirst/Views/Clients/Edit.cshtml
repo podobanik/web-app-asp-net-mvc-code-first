@@ -1,0 +1,12 @@
+﻿@using Webappaspnetmvccodefirst.Models;
+@model Client
+
+<h3>Клиент</h3>
+
+@using (Html.BeginForm("Edit", "Clients", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary();
+    @Html.EditorForModel()
+    <input type="submit" value="Сохранить" />
+    @Html.ActionLink("Отменить", "Index", "Clients")
+}

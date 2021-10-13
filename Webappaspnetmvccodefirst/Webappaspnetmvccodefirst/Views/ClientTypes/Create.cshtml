@@ -1,0 +1,9 @@
+﻿@using Webappaspnetmvccodefirst.Models;
+@model ClientType
+
+@using (Html.BeginForm("Create", "ClientTypes", FormMethod.Post))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Сохранить" />
+    @Html.ActionLink("Отменить", "Index", "ClientTypes")
+}
