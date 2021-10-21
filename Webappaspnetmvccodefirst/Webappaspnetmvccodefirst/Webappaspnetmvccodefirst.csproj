@@ -135,13 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110130107403_Init3.cs" />
-    <Compile Include="Migrations\202110130107403_Init3.designer.cs">
-      <DependentUpon>202110130107403_Init3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110130421260_Init4.cs" />
-    <Compile Include="Migrations\202110130421260_Init4.designer.cs">
-      <DependentUpon>202110130421260_Init4.cs</DependentUpon>
+    <Compile Include="Migrations\202110210143002_Init.cs" />
+    <Compile Include="Migrations\202110210143002_Init.designer.cs">
+      <DependentUpon>202110210143002_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attributes\TargetPropertyAttribute.cs" />
@@ -217,11 +213,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110130107403_Init3.resx">
-      <DependentUpon>202110130107403_Init3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110130421260_Init4.resx">
-      <DependentUpon>202110130421260_Init4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110210143002_Init.resx">
+      <DependentUpon>202110210143002_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

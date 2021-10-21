@@ -33,6 +33,26 @@ namespace Webappaspnetmvccodefirst.Controllers
                 return View(model);
 
             var db = new GosuslugiContext();
+            if (model.DocumentFile != null)
+            {
+                var data = new byte[model.DocumentFile.ContentLength];
+                model.DocumentFile.InputStream.Read(data, 0, model.DocumentFile.ContentLength);
+
+                model.Documents = new Document()
+                {
+                    Guid = Guid.NewGuid(),
+                    DateChanged = DateTime.Now,
+                    Data = data,
+                    ContentType = model.DocumentFile.ContentType,
+                    FileName = model.DocumentFile.FileName
+                };
+            }
+
+            if (model.OrderIds != null && model.OrderIds.Any())
+            {
+                var orders = db.Orders.Where(s => model.OrderIds.Contains(s.Id)).ToList();
+                model.Orders = orders;
+            }
             db.Clients.Add(model);
             db.SaveChanges();
             return RedirectPermanent("/Clients/Index");
@@ -97,7 +117,7 @@ namespace Webappaspnetmvccodefirst.Controllers
             var image = db.Documents.FirstOrDefault(x => x.Id == id);
             if (image == null)
             {
-                FileStream fs = System.IO.File.OpenRead(Server.MapPath(@"~/Content/Images/not-foto.jpeg"));
+                FileStream fs = System.IO.File.OpenRead(Server.MapPath(@"~/Content/Images/not-foto.png"));
                 byte[] fileData = new byte[fs.Length];
                 fs.Read(fileData, 0, (int)fs.Length);
                 fs.Close();
